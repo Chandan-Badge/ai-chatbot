@@ -5,6 +5,8 @@ const fileInput = document.querySelector("#file-input");
 const fileUploadWrapper = document.querySelector(".file-upload-wrapper");
 const fileCancelButton = document.querySelector("#file-cancel");
 
+// import { chandanInfo } from "./chandanInfo";
+
 // API setup
 const API_KEY = "AIzaSyARrus7KKPz9xd5gZiln5a9wiThXg3YLKw";
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
@@ -16,6 +18,12 @@ const userData = {
         mime_type: null
     }
 }
+
+// const chatHistory = [{
+//     hideInChat: true,
+//     role: "model",
+//     text: chandanInfo
+// }];
 
 const chatHistory = [];
 
