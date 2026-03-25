@@ -94,8 +94,8 @@ const handleOutgoingMessage = (e) => {
     fileUploadWrapper.classList.remove("file-uploaded");
 
     // create and display user message
-    const messageContent = `<div class="message-text py-2 px-4 max-w-[75%] text-[0.95rem] text-white bg-red-800 rounded-l-xl rounded-tr-xl">  </div>
-                            ${userData.file.data ? `<img src="data:${userData.file.mime_type};base64,${userData.file.data}" class="attachment w-[40%] mt-1 rounded-l-lg rounded-tr-lg" />` : ""}`;
+    const messageContent = `<div class="message-text py-3 px-4 max-w-[80%] text-[0.9rem] leading-relaxed"></div>
+                            ${userData.file.data ? `<img src="data:${userData.file.mime_type};base64,${userData.file.data}" class="attachment w-28 md:w-36 mt-2" />` : ""}`;
     
     const outgoingMessageDiv =  createMessageElement(messageContent, "user-message");
     outgoingMessageDiv.querySelector(".message-text").innerText = userData.message;
@@ -105,15 +105,17 @@ const handleOutgoingMessage = (e) => {
 
     // Simulate bot response with thinking indicator after a delay
     setTimeout(() => {
-        const messageContent = `<div class="message bot-message flex gap-3 items-center">
-                <img src="./src/assets/botavatar.svg" alt="bot" class="bot-avatar w-9 h-9 p-[6px] fill-white bg-red-800 flex-shrink-0 rounded-full self-end mb-[2px]">
-                
-                <div class="message-text py-2 px-3 max-w-[75%] text-[0.95rem] bg-[#f2f2ff] rounded-r-xl rounded-tl-xl">
+        const messageContent = `<div class="message bot-message flex gap-3 items-end">
+                <div class="relative flex-shrink-0">
+                    <img src="./src/assets/botavatar.svg" alt="bot" class="bot-avatar w-9 h-9 p-[6px] fill-white bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl shadow-md">
+                </div>
+
+                <div class="message-text py-3 px-4 max-w-[80%] text-[0.9rem] leading-relaxed bg-gradient-to-br from-gray-50 to-gray-100 text-gray-700 rounded-2xl rounded-bl-md shadow-sm border border-gray-100">
                     <!-- Thinking message -->
-                    <div class="thinking-indicator flex gap-1 py-2 px-4">
-                        <div class="dot h-2 w-2 rounded-full bg-[#A30D11]"></div>
-                        <div class="dot h-2 w-2 rounded-full bg-[#A30D11]"></div>
-                        <div class="dot h-2 w-2 rounded-full bg-[#A30D11]"></div>
+                    <div class="thinking-indicator flex gap-1.5 py-1 px-2">
+                        <div class="dot h-2 w-2 rounded-full"></div>
+                        <div class="dot h-2 w-2 rounded-full"></div>
+                        <div class="dot h-2 w-2 rounded-full"></div>
                     </div>
                 </div>
             </div>`;
